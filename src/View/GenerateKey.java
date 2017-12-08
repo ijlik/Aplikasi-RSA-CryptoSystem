@@ -272,8 +272,8 @@ public class GenerateKey extends javax.swing.JFrame {
         this.p.setEnabled(false);
         this.q.setEnabled(false);
         this.PubKey.setEnabled(false);
-        this.availableE.setEnabled(false);
-        this.PrivKey.setEnabled(false);
+        this.availableE.setEnabled(true);
+        this.PrivKey.setEnabled(true);
         this.result.setEnabled(true);
         this.next.setEnabled(true);
     }

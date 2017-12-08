@@ -106,6 +106,7 @@ public class EncController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            n = 100;
             nilaiE = Integer.parseInt(vG.getPubKey());
             stepFPB(sM, nilaiE);
             stepSol(sM, nilaiE);
@@ -234,7 +235,7 @@ public class EncController {
                         }
                     }
                 }
-                String s[] = new String[25];
+                String s[] = new String[sM / 7];
                 System.out.println("Available");
                 try {
                     for (int i = 0; i < s.length; i++) {
