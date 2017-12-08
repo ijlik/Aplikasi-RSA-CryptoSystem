@@ -94,8 +94,12 @@ public class EncController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            Controller.EncController c = new Controller.EncController(new View.EncForm(), d, sM, nilaiE, n);
-            vG.setVisible(false);
+            if (Integer.parseInt(vG.getPrivKey()) < 0) {
+                JOptionPane.showMessageDialog(vG, "Private Key tidakboleh negatif, silahkan pilih Public key yang lain sehingga Private Key tidak negatif");
+            } else {
+                Controller.EncController c = new Controller.EncController(new View.EncForm(), d, sM, nilaiE, n);
+                vG.setVisible(false);
+            }
         }
     }
 

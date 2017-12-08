@@ -21,11 +21,13 @@ public class GenerateKey extends javax.swing.JFrame {
     public GenerateKey() {
         setTitle("GenerateKey - RSA Crypto System");
         initComponents();
+        result.setEditable(false);
     }
     public GenerateKey(String s[]) {
         availabelList = s;
         setTitle("GenerateKey - RSA Crypto System");
         initComponents();
+        result.setEditable(false);
     }
 
     /**
@@ -238,6 +240,9 @@ public class GenerateKey extends javax.swing.JFrame {
     }
     public String getPubKey() {
         return availableE.getSelectedItem().toString();
+    }
+    public String getPrivKey() {
+        return result.getText();
     }
 
     public void setAvailableList(String[] a) {

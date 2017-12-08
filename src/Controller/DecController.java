@@ -64,7 +64,6 @@ public class DecController {
                 JOptionPane.showMessageDialog(v, "nilai Q yang anda Masukan bukan Bilangan Prima");
             } else {
                 long n = p * q;
-                long sM = (p - 1) * (q - 1);
                 String s = v.getMesages();
                 String hasil = "";
                 String x[] = s.split(" ");
