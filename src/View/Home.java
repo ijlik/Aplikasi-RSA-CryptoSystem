@@ -5,6 +5,10 @@
  */
 package View;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
+
 /**
  *
  * @author ijlik
@@ -14,9 +18,31 @@ public class Home extends javax.swing.JFrame {
     /**
      * Creates new form Home
      */
+    Timer timer;
+    ActionListener actionListener;
+    
     public Home() {
         setTitle("RSA Crypto System");
         initComponents();
+        act();
+        timer = new Timer(100,actionListener);
+        timer.start();
+    }
+    private void act() {
+        actionListener = new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                loading.setValue(loading.getValue() + 2);
+                loading.setStringPainted(true);
+                if (loading.getPercentComplete() == 1.00) {
+                    timer.stop();
+                    start.setVisible(true);
+                    load.setVisible(false);
+                    loading.setVisible(false);
+                }
+            }
+        };
     }
 
     /**
@@ -31,14 +57,14 @@ public class Home extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        start = new javax.swing.JButton();
         load = new javax.swing.JLabel();
+        loading = new javax.swing.JProgressBar();
+        start = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(200, 100));
         setMinimumSize(new java.awt.Dimension(825, 510));
-        setPreferredSize(new java.awt.Dimension(825, 510));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -70,6 +96,13 @@ public class Home extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 770, 60));
 
+        load.setBackground(new java.awt.Color(255, 255, 255));
+        load.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        load.setForeground(new java.awt.Color(255, 255, 255));
+        load.setText("Loading . . .");
+        jPanel1.add(load, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, -1, -1));
+        jPanel1.add(loading, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, 490, 20));
+
         start.setText("Start");
         start.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,17 +111,6 @@ public class Home extends javax.swing.JFrame {
         });
         jPanel1.add(start, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, 90, -1));
 
-        load.setBackground(new java.awt.Color(255, 255, 255));
-        load.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        load.setForeground(new java.awt.Color(255, 255, 255));
-        load.setText("Loading . . .");
-        load.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loadMouseClicked(evt);
-            }
-        });
-        jPanel1.add(load, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, -1, -1));
-
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/bg.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -96,11 +118,6 @@ public class Home extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void loadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loadMouseClicked
-        this.load.setVisible(false);
-        this.start.setVisible(true);
-    }//GEN-LAST:event_loadMouseClicked
 
     private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
         Controller.MenuController c = new Controller.MenuController(new View.Menu());
@@ -119,6 +136,9 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel load;
+    private javax.swing.JProgressBar loading;
     private javax.swing.JButton start;
     // End of variables declaration//GEN-END:variables
+
+    
 }
