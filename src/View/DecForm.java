@@ -19,6 +19,10 @@ public class DecForm extends javax.swing.JFrame {
     public DecForm() {
         setTitle("Decrypt - RSA Crypto System");
         initComponents();
+        messages.setLineWrap(true);
+        messages.setWrapStyleWord(true);
+        result.setLineWrap(true);
+        result.setWrapStyleWord(true);
     }
 
     /**

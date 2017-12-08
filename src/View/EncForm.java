@@ -19,6 +19,12 @@ public class EncForm extends javax.swing.JFrame {
     public EncForm() {
         setTitle("Encrypt - RSA Crypto System");
         initComponents();
+        message.setLineWrap(true);
+        message.setWrapStyleWord(true);
+        result.setLineWrap(true);
+        result.setWrapStyleWord(true);
+        result1.setLineWrap(true);
+        result1.setWrapStyleWord(true);
     }
 
     /**
