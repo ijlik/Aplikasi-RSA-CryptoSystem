@@ -1,2 +1,2 @@
 # RSACryptoSystem
-use Netbeans to open this Project
+Aplikasi kriptografi RSA dengan bahasa pemrograman java dan IDE Netbeans
